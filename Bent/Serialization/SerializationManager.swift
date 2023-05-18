@@ -10,7 +10,11 @@ import Foundation
 
 
 /// Centralizes the duties of serializing data
-public actor SerializationManager {
+public actor SerializationManager<Key: RawRepresentable>: ObservableObject
+where Key.RawValue: StringProtocol
+{
+    
+    // TODO: Add a hook here so others can tell when serialized data changes and perform necessary updates
     
     let location: Location
     
@@ -41,14 +45,14 @@ public extension SerializationManager {
 // MARK: - Storing and fetching
 
 public extension SerializationManager {
-    subscript<Value>(_ key: String) -> FetchResult<Value> {
-        location.deserializer.fetchValue(for: key)
+    subscript<Value>(_ key: Key) -> DeserializationFetchResult<Value> {
+        location.deserializer.fetchValue(for: key.rawValue.description)
     }
     
     
-    subscript<Value>(_ key: String) -> Value? {
+    subscript<Value>(_ key: Key) -> Value? {
         get {
-            switch self[key] as FetchResult<Value> {
+            switch self[key] as DeserializationFetchResult<Value> {
             case .found(value: let value):
                 return value
                 
@@ -60,31 +64,52 @@ public extension SerializationManager {
         
         set {
             if let newValue {
-                try? location.serializer.serialize(value: newValue, to: key)
+                try? location.serializer.serialize(value: newValue, to: key.rawValue.description)
             }
             else {
-                try? location.serializer.deleteValue(at: key)
+                try? location.serializer.deleteValue(at: key.rawValue.description)
             }
+        }
+    }
+    
+    
+    subscript<Value>(_ key: Key, default default: Value, serializeDefaultWhenFetchFails: Bool = true) -> Value {
+        get {
+            switch self[key] as DeserializationFetchResult<Value> {
+            case .found(value: let value):
+                return value
+                
+            case .wrongType(untypedValue: _),
+                    .notFound:
+                
+                if serializeDefaultWhenFetchFails {
+                    self[key] = `default`
+                }
+                
+                return `default`
+            }
+        }
+        
+        set {
+            try? location.serializer.deleteValue(at: key.rawValue.description)
         }
     }
 }
 
-public extension SerializationManager {
+
+/// The semantic result of a fetch operation
+public enum DeserializationFetchResult<Value> {
     
-    /// The semantic result of a fetch operation
-    enum FetchResult<Value> {
-        
-        /// The value was found and of the correct type
-        /// - Parameter value: The typed value correctly fetched
-        case found(value: Value)
-        
-        /// The value was found but wasn't of the expected type
-        /// - Parameter untypedValue: The value which was fetched but wasn't of the expected type
-        case wrongType(untypedValue: Any)
-        
-        /// There was no value in the indicated location
-        case notFound
-    }
+    /// The value was found and of the correct type
+    /// - Parameter value: The typed value correctly fetched
+    case found(value: Value)
+    
+    /// The value was found but wasn't of the expected type
+    /// - Parameter untypedValue: The value which was fetched but wasn't of the expected type
+    case wrongType(untypedValue: Any)
+    
+    /// There was no value in the indicated location
+    case notFound
 }
 
 
@@ -101,9 +126,7 @@ private protocol Serializer {
 
 
 private protocol Deserializer {
-    func fetchValue<Value>(for key: String) -> FetchResult<Value>
-    
-    typealias FetchResult = SerializationManager.FetchResult
+    func fetchValue<Value>(for key: String) -> DeserializationFetchResult<Value>
 }
 
 
@@ -149,7 +172,7 @@ private extension UserDefaults {
         }
         
         
-        func fetchValue<Value>(for key: String) -> FetchResult<Value> {
+        func fetchValue<Value>(for key: String) -> DeserializationFetchResult<Value> {
             let fetchResult = _userDefaults.object(forKey: key)
             
             if let fetchResult = fetchResult as? Value {

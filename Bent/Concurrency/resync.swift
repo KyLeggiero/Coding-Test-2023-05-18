@@ -26,7 +26,7 @@ throws -> Value {
     
     let result = MutableSafePointer<Optional<Result<Value, Error>>>(to: .none)
     
-    Task.detached(priority: .userInteractive) {
+    Task.detached(priority: .high) {
         defer {
             semaphore.signal()
         }

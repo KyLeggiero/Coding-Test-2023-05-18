@@ -2,14 +2,15 @@
 //  ContentView.swift
 //  Bent
 //
-//  Created by Northstar✨System on 2023-05-18.
+//  Created by Ky Leggiero on 2023-05-18.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     
-    let appSection: AppSection
+    @Binding
+    var appSection: AppSection
     
     var body: some View {
         VStack {
@@ -24,6 +25,13 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(appSection: .constant(.onboarding(progress: .fresh)))
+        ContentView(appSection: .constant(.onboarding(progress: .init(
+            userManuallySelectedScreen: .addProfilePic,
+            inviteCode: "123ABC",
+            selectedCommunityId: .init(),
+            userProfile: .init(id: UUID(), phoneNubmerIsVerified: false),
+            validationImage: nil)))
+        )
     }
 }

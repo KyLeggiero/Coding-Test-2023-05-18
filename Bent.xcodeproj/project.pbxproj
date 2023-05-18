@@ -7,13 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B95B018B2A16BB4A0071492C /* BentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B018A2A16BB4A0071492C /* BentApp.swift */; };
+		B95B018B2A16BB4A0071492C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B018A2A16BB4A0071492C /* App.swift */; };
 		B95B018D2A16BB4A0071492C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B018C2A16BB4A0071492C /* ContentView.swift */; };
 		B95B018F2A16BB4C0071492C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95B018E2A16BB4C0071492C /* Assets.xcassets */; };
 		B95B01932A16BB4C0071492C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B95B01922A16BB4C0071492C /* Preview Assets.xcassets */; };
 		B95B019D2A16BB4C0071492C /* BentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B019C2A16BB4C0071492C /* BentTests.swift */; };
 		B95B01A72A16BB4C0071492C /* BentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01A62A16BB4C0071492C /* BentUITests.swift */; };
 		B95B01A92A16BB4C0071492C /* BentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01A82A16BB4C0071492C /* BentUITestsLaunchTests.swift */; };
+		B95B01B72A16BB9E0071492C /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01B62A16BB9E0071492C /* AppSection.swift */; };
+		B95B01B92A16BBBB0071492C /* OnboardingProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01B82A16BBBB0071492C /* OnboardingProgress.swift */; };
+		B95B01BE2A16BD7C0071492C /* CommunityId.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01BD2A16BD7C0071492C /* CommunityId.swift */; };
+		B95B01C12A16BDD80071492C /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01C02A16BDD80071492C /* UserProfile.swift */; };
+		B95B01C92A16C9B10071492C /* CrossKitTypes in Frameworks */ = {isa = PBXBuildFile; productRef = B95B01C82A16C9B10071492C /* CrossKitTypes */; };
+		B95B01CB2A16CA150071492C /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01CA2A16CA150071492C /* OnboardingScreen.swift */; };
+		B95B01CE2A16CECD0071492C /* GenderTools in Frameworks */ = {isa = PBXBuildFile; productRef = B95B01CD2A16CECD0071492C /* GenderTools */; };
+		B95B01D02A16CF560071492C /* SerializationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01CF2A16CF560071492C /* SerializationManager.swift */; };
+		B95B01D42A16D84F0071492C /* UserDefaults + conveniences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01D32A16D84F0071492C /* UserDefaults + conveniences.swift */; };
+		B95B01D72A16DA270071492C /* SimpleLogging in Frameworks */ = {isa = PBXBuildFile; productRef = B95B01D62A16DA270071492C /* SimpleLogging */; };
+		B95B01DE2A16DE3F0071492C /* SerializableKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01DD2A16DE3F0071492C /* SerializableKeys.swift */; };
+		B95B01E12A16E7A50071492C /* resync.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01E02A16E7A50071492C /* resync.swift */; };
+		B95B01E42A16E7D30071492C /* OptionalTools in Frameworks */ = {isa = PBXBuildFile; productRef = B95B01E32A16E7D30071492C /* OptionalTools */; };
+		B95B01E72A16E7FF0071492C /* SafePointer in Frameworks */ = {isa = PBXBuildFile; productRef = B95B01E62A16E7FF0071492C /* SafePointer */; };
+		B95B01E92A16E81D0071492C /* DispatchSemaphore + sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95B01E82A16E81D0071492C /* DispatchSemaphore + sugar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		B95B01872A16BB4A0071492C /* Bent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bent.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B95B018A2A16BB4A0071492C /* BentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentApp.swift; sourceTree = "<group>"; };
+		B95B018A2A16BB4A0071492C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		B95B018C2A16BB4A0071492C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B95B018E2A16BB4C0071492C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B95B01902A16BB4C0071492C /* Bent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bent.entitlements; sourceTree = "<group>"; };
@@ -45,6 +60,16 @@
 		B95B01A22A16BB4C0071492C /* BentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B01A62A16BB4C0071492C /* BentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentUITests.swift; sourceTree = "<group>"; };
 		B95B01A82A16BB4C0071492C /* BentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B95B01B62A16BB9E0071492C /* AppSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSection.swift; sourceTree = "<group>"; };
+		B95B01B82A16BBBB0071492C /* OnboardingProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgress.swift; sourceTree = "<group>"; };
+		B95B01BD2A16BD7C0071492C /* CommunityId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityId.swift; sourceTree = "<group>"; };
+		B95B01C02A16BDD80071492C /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		B95B01CA2A16CA150071492C /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		B95B01CF2A16CF560071492C /* SerializationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationManager.swift; sourceTree = "<group>"; };
+		B95B01D32A16D84F0071492C /* UserDefaults + conveniences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults + conveniences.swift"; sourceTree = "<group>"; };
+		B95B01DD2A16DE3F0071492C /* SerializableKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializableKeys.swift; sourceTree = "<group>"; };
+		B95B01E02A16E7A50071492C /* resync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resync.swift; sourceTree = "<group>"; };
+		B95B01E82A16E81D0071492C /* DispatchSemaphore + sugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchSemaphore + sugar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +77,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95B01E72A16E7FF0071492C /* SafePointer in Frameworks */,
+				B95B01E42A16E7D30071492C /* OptionalTools in Frameworks */,
+				B95B01C92A16C9B10071492C /* CrossKitTypes in Frameworks */,
+				B95B01CE2A16CECD0071492C /* GenderTools in Frameworks */,
+				B95B01D72A16DA270071492C /* SimpleLogging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,10 +125,15 @@
 		B95B01892A16BB4A0071492C /* Bent */ = {
 			isa = PBXGroup;
 			children = (
-				B95B018A2A16BB4A0071492C /* BentApp.swift */,
-				B95B018C2A16BB4A0071492C /* ContentView.swift */,
-				B95B018E2A16BB4C0071492C /* Assets.xcassets */,
-				B95B01902A16BB4C0071492C /* Bent.entitlements */,
+				B95B018A2A16BB4A0071492C /* App.swift */,
+				B95B01BC2A16BC210071492C /* Views */,
+				B95B01B52A16BB900071492C /* App Navigation */,
+				B95B01BF2A16BDCA0071492C /* User data */,
+				B95B01BA2A16BBE60071492C /* Communities */,
+				B95B01D82A16DB1B0071492C /* Serialization */,
+				B95B01DF2A16E7910071492C /* Concurrency */,
+				B95B01D12A16D8140071492C /* Extensions */,
+				B95B01BB2A16BBF40071492C /* Ancillary */,
 				B95B01912A16BB4C0071492C /* Preview Content */,
 			);
 			path = Bent;
@@ -129,6 +164,83 @@
 			path = BentUITests;
 			sourceTree = "<group>";
 		};
+		B95B01B52A16BB900071492C /* App Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01B62A16BB9E0071492C /* AppSection.swift */,
+				B95B01B82A16BBBB0071492C /* OnboardingProgress.swift */,
+				B95B01CA2A16CA150071492C /* OnboardingScreen.swift */,
+			);
+			path = "App Navigation";
+			sourceTree = "<group>";
+		};
+		B95B01BA2A16BBE60071492C /* Communities */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01BD2A16BD7C0071492C /* CommunityId.swift */,
+			);
+			path = Communities;
+			sourceTree = "<group>";
+		};
+		B95B01BB2A16BBF40071492C /* Ancillary */ = {
+			isa = PBXGroup;
+			children = (
+				B95B018E2A16BB4C0071492C /* Assets.xcassets */,
+				B95B01902A16BB4C0071492C /* Bent.entitlements */,
+			);
+			path = Ancillary;
+			sourceTree = "<group>";
+		};
+		B95B01BC2A16BC210071492C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B95B018C2A16BB4A0071492C /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B95B01BF2A16BDCA0071492C /* User data */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01C02A16BDD80071492C /* UserProfile.swift */,
+			);
+			path = "User data";
+			sourceTree = "<group>";
+		};
+		B95B01D12A16D8140071492C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01D22A16D8190071492C /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B95B01D22A16D8190071492C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01D32A16D84F0071492C /* UserDefaults + conveniences.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		B95B01D82A16DB1B0071492C /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01CF2A16CF560071492C /* SerializationManager.swift */,
+				B95B01DD2A16DE3F0071492C /* SerializableKeys.swift */,
+			);
+			path = Serialization;
+			sourceTree = "<group>";
+		};
+		B95B01DF2A16E7910071492C /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				B95B01E82A16E81D0071492C /* DispatchSemaphore + sugar.swift */,
+				B95B01E02A16E7A50071492C /* resync.swift */,
+			);
+			path = Concurrency;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +257,13 @@
 			dependencies = (
 			);
 			name = Bent;
+			packageProductDependencies = (
+				B95B01C82A16C9B10071492C /* CrossKitTypes */,
+				B95B01CD2A16CECD0071492C /* GenderTools */,
+				B95B01D62A16DA270071492C /* SimpleLogging */,
+				B95B01E32A16E7D30071492C /* OptionalTools */,
+				B95B01E62A16E7FF0071492C /* SafePointer */,
+			);
 			productName = Bent;
 			productReference = B95B01872A16BB4A0071492C /* Bent.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +336,13 @@
 				Base,
 			);
 			mainGroup = B95B017E2A16BB4A0071492C;
+			packageReferences = (
+				B95B01C72A16C9B10071492C /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */,
+				B95B01CC2A16CECD0071492C /* XCRemoteSwiftPackageReference "Swift-GenderTools" */,
+				B95B01D52A16DA270071492C /* XCRemoteSwiftPackageReference "Swift-Simple-Logging" */,
+				B95B01E22A16E7D30071492C /* XCRemoteSwiftPackageReference "Swift-Optional-Tools" */,
+				B95B01E52A16E7FF0071492C /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */,
+			);
 			productRefGroup = B95B01882A16BB4A0071492C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +385,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95B01B72A16BB9E0071492C /* AppSection.swift in Sources */,
 				B95B018D2A16BB4A0071492C /* ContentView.swift in Sources */,
-				B95B018B2A16BB4A0071492C /* BentApp.swift in Sources */,
+				B95B01C12A16BDD80071492C /* UserProfile.swift in Sources */,
+				B95B018B2A16BB4A0071492C /* App.swift in Sources */,
+				B95B01DE2A16DE3F0071492C /* SerializableKeys.swift in Sources */,
+				B95B01D42A16D84F0071492C /* UserDefaults + conveniences.swift in Sources */,
+				B95B01BE2A16BD7C0071492C /* CommunityId.swift in Sources */,
+				B95B01E92A16E81D0071492C /* DispatchSemaphore + sugar.swift in Sources */,
+				B95B01CB2A16CA150071492C /* OnboardingScreen.swift in Sources */,
+				B95B01D02A16CF560071492C /* SerializationManager.swift in Sources */,
+				B95B01E12A16E7A50071492C /* resync.swift in Sources */,
+				B95B01B92A16BBBB0071492C /* OnboardingProgress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +748,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B95B01C72A16C9B10071492C /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Cross-Kit-Types.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		B95B01CC2A16CECD0071492C /* XCRemoteSwiftPackageReference "Swift-GenderTools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-GenderTools.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.2;
+			};
+		};
+		B95B01D52A16DA270071492C /* XCRemoteSwiftPackageReference "Swift-Simple-Logging" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Simple-Logging";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.5.2;
+			};
+		};
+		B95B01E22A16E7D30071492C /* XCRemoteSwiftPackageReference "Swift-Optional-Tools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Optional-Tools.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
+		B95B01E52A16E7FF0071492C /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Safe-Pointer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B95B01C82A16C9B10071492C /* CrossKitTypes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95B01C72A16C9B10071492C /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */;
+			productName = CrossKitTypes;
+		};
+		B95B01CD2A16CECD0071492C /* GenderTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95B01CC2A16CECD0071492C /* XCRemoteSwiftPackageReference "Swift-GenderTools" */;
+			productName = GenderTools;
+		};
+		B95B01D62A16DA270071492C /* SimpleLogging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95B01D52A16DA270071492C /* XCRemoteSwiftPackageReference "Swift-Simple-Logging" */;
+			productName = SimpleLogging;
+		};
+		B95B01E32A16E7D30071492C /* OptionalTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95B01E22A16E7D30071492C /* XCRemoteSwiftPackageReference "Swift-Optional-Tools" */;
+			productName = OptionalTools;
+		};
+		B95B01E62A16E7FF0071492C /* SafePointer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B95B01E52A16E7FF0071492C /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */;
+			productName = SafePointer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B95B017F2A16BB4A0071492C /* Project object */;
 }

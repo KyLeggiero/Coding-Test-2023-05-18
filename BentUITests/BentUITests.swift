@@ -2,7 +2,7 @@
 //  BentUITests.swift
 //  BentUITests
 //
-//  Created by Northstar✨System on 2023-05-18.
+//  Created by Ky Leggiero on 2023-05-18.
 //
 
 import XCTest

@@ -1,0 +1,68 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-cross-kit-types",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Cross-Kit-Types.git",
+      "state" : {
+        "revision" : "d64faa8d5e988352dff45e03a13da4f90c3a70e5",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "swift-function-tools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Function-Tools.git",
+      "state" : {
+        "revision" : "0bd76ca2c00120acf7ff840b5dcc1e700870ae22",
+        "version" : "1.2.3"
+      }
+    },
+    {
+      "identity" : "swift-gendertools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-GenderTools.git",
+      "state" : {
+        "revision" : "d3d057e8c365be80ccdf1f82e0f44d652bbd05de",
+        "version" : "0.0.2"
+      }
+    },
+    {
+      "identity" : "swift-lazy-containers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Lazy-Containers.git",
+      "state" : {
+        "revision" : "360a35c98992fc53739e884fb0c48e988710fa92",
+        "version" : "4.1.0"
+      }
+    },
+    {
+      "identity" : "swift-optional-tools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Optional-Tools.git",
+      "state" : {
+        "revision" : "e930eccb0109de044b0c227a62d3df6c5e072f76",
+        "version" : "1.1.3"
+      }
+    },
+    {
+      "identity" : "swift-safe-pointer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Safe-Pointer.git",
+      "state" : {
+        "revision" : "a71a39d19275d90e13f362c3d23163dc41318d85",
+        "version" : "2.1.3"
+      }
+    },
+    {
+      "identity" : "swift-simple-logging",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RougeWare/Swift-Simple-Logging",
+      "state" : {
+        "revision" : "efdee028f383b0f3c39646a76e16bdd30693f53b",
+        "version" : "0.5.2"
+      }
+    }
+  ],
+  "version" : 2
+}
