@@ -13,13 +13,21 @@ struct ContentView: View {
     var appSection: AppSection
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        switch appSection {
+        case .onboarding(let progress):
+            OnboardingSectionView(
+                progress: .init(
+                    get: { progress },
+                    set: { appSection = .onboarding(progress: $0) } ),
+                onSectionComplete: {
+                    appSection = .thankYouForYourConsideration
+                }
+            )
+            
+        case .thankYouForYourConsideration:
+            ThankYouForYourConsideration(onReset: { appSection = .default })
+                .transition(.move(edge: .trailing).animation(.default))
         }
-        .padding()
     }
 }
 
@@ -30,8 +38,8 @@ struct ContentView_Previews: PreviewProvider {
             userManuallySelectedScreen: .addProfilePic,
             inviteCode: "123ABC",
             selectedCommunityId: .init(),
-            userProfile: .init(id: UUID(), phoneNubmerIsVerified: false),
-            validationImage: nil)))
+            userProfile: .init(id: UUID(), name: "Ky", phoneNubmerIsVerified: false),
+            verificationImage: nil)))
         )
     }
 }

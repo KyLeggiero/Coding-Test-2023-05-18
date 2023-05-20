@@ -45,12 +45,12 @@ public extension SerializationManager {
 // MARK: - Storing and fetching
 
 public extension SerializationManager {
-    subscript<Value>(_ key: Key) -> DeserializationFetchResult<Value> {
+    subscript<Value: Decodable>(_ key: Key) -> DeserializationFetchResult<Value> {
         location.deserializer.fetchValue(for: key.rawValue.description)
     }
     
     
-    subscript<Value>(_ key: Key) -> Value? {
+    subscript<Value: Codable>(_ key: Key) -> Value? {
         get {
             switch self[key] as DeserializationFetchResult<Value> {
             case .found(value: let value):
@@ -64,7 +64,7 @@ public extension SerializationManager {
         
         set {
             if let newValue {
-                try? location.serializer.serialize(value: newValue, to: key.rawValue.description)
+                try? serialize(newValue, to: key)
             }
             else {
                 try? location.serializer.deleteValue(at: key.rawValue.description)
@@ -73,7 +73,12 @@ public extension SerializationManager {
     }
     
     
-    subscript<Value>(_ key: Key, default default: Value, serializeDefaultWhenFetchFails: Bool = true) -> Value {
+    func serialize<Value: Encodable>(_ value: Value, to key: Key) throws {
+        try location.serializer.serialize(value, to: key.rawValue.description)
+    }
+    
+    
+    subscript<Value: Codable>(_ key: Key, default default: @autoclosure () -> Value, serializeDefaultWhenFetchFails: Bool = true) -> Value {
         get {
             switch self[key] as DeserializationFetchResult<Value> {
             case .found(value: let value):
@@ -82,11 +87,13 @@ public extension SerializationManager {
             case .wrongType(untypedValue: _),
                     .notFound:
                 
+                let backup = `default`()
+                
                 if serializeDefaultWhenFetchFails {
-                    self[key] = `default`
+                    self[key] = backup
                 }
                 
-                return `default`
+                return backup
             }
         }
         
@@ -119,14 +126,14 @@ public enum DeserializationFetchResult<Value> {
 
 
 private protocol Serializer {
-    func serialize<Value>(value: Value, to key: String) throws
+    func serialize<Value: Encodable>(_ value: Value, to key: String) throws
     func deleteValue(at key: String) throws
 }
 
 
 
 private protocol Deserializer {
-    func fetchValue<Value>(for key: String) -> DeserializationFetchResult<Value>
+    func fetchValue<Value: Decodable>(for key: String) -> DeserializationFetchResult<Value>
 }
 
 
@@ -162,8 +169,8 @@ private extension UserDefaults {
         }
         
         
-        func serialize<Value>(value: Value, to key: String) {
-            self._userDefaults.set(value, forKey: key)
+        func serialize<Value: Encodable>(_ value: Value, to key: String) throws {
+            self._userDefaults.set(try value.jsonData(), forKey: key)
         }
         
         
@@ -172,10 +179,15 @@ private extension UserDefaults {
         }
         
         
-        func fetchValue<Value>(for key: String) -> DeserializationFetchResult<Value> {
+        func fetchValue<Value: Decodable>(for key: String) -> DeserializationFetchResult<Value> {
             let fetchResult = _userDefaults.object(forKey: key)
             
             if let fetchResult = fetchResult as? Value {
+                return .found(value: fetchResult)
+            }
+            else if let fetchData = fetchResult as? Data,
+                    let fetchResult = try? Value(jsonData: fetchData)
+            {
                 return .found(value: fetchResult)
             }
             else if let fetchResult {

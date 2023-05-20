@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Artboard 1025.png",
+      "filename" : "Bent icon 1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -42,7 +42,7 @@
       "size" : "256x256"
     },
     {
-      "filename" : "Artboard512@1x.png",
+      "filename" : "Bent icon256@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "256x256"
@@ -53,16 +53,10 @@
       "size" : "512x512"
     },
     {
-      "filename" : "Artboard512@2x.png",
+      "filename" : "Bent icon512@2x.png",
       "idiom" : "mac",
       "scale" : "2x",
       "size" : "512x512"
-    },
-    {
-      "filename" : "Artboard 1026.png",
-      "idiom" : "universal",
-      "platform" : "watchos",
-      "size" : "1024x1024"
     }
   ],
   "info" : {

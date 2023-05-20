@@ -7,27 +7,61 @@
 
 import SwiftUI
 
+import SimpleLogging
+
+
+
 @main
 struct App: SwiftUI.App {
     
-    @EnvironmentObject
-    private var serializationManager: SerializationManager<TopLevelSerializationKeys>
+    @StateObject
+    private var serializationManager = SerializationManager<TopLevelSerializationKeys>()
+    
+    @State
+    private var appSection: AppSection = .default
     
     var body: some Scene {
         WindowGroup {
-            ContentView(appSection: .init(
-                get: {
-                    (try? resync {
-                        await serializationManager[.appSection]
-                    })
-                    ?? .onboarding(progress: .fresh)
-                },
-                set: { newValue in
+            ContentView(appSection: $appSection)
+                .environmentObject(serializationManager)
+                .task {
+                    appSection = await serializationManager[.appSection, default: .default]
+                }
+                .onChange(of: appSection) { appSection in
                     Task {
-                        serializationManager[.appSection] = newValue
+                        do {
+                            try await serializationManager.serialize(appSection, to: .appSection)
+                        }
+                        catch {
+                            log(error: error)
+                        }
                     }
                 }
-            ))
+            
+//            ContentView(appSection: .init(
+//                get: {
+//                    do {
+//                        return try resync {
+//                            await serializationManager[.appSection] ?? .onboarding(progress: .fresh)
+//                        }
+//                    }
+//                    catch {
+//                        log(error: error)
+//                        return .onboarding(progress: .fresh)
+//                    }
+//                },
+//
+//                set: { newValue in
+//                    Task {
+//                        do {
+//                            try await serializationManager.serialize(newValue, to: .appSection)
+//                        }
+//                        catch {
+//                            log(error: error)
+//                        }
+//                    }
+//                }
+//            ))
         }
     }
 }

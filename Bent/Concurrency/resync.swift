@@ -2,7 +2,7 @@
 //  resync.swift
 //  Plural Diagramming
 //
-//  Created by The Northstar✨ System on 2023-01-17.
+//  Created by The Ky Leggiero on 2023-01-17.
 //
 
 import Foundation
